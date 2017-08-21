@@ -1,20 +1,13 @@
 .thegrid {
+    display: flex;
     width: 100%;
 }
 
-.thegrid tr {
-    
-}
-
-.thegrid tr:nth-child(odd) {
-}
-
-
-.thegrid tr:nth-child(even) td:nth-child(odd) {
+.thegrid > div:nth-child(even) > div:nth-child(odd) {
     background: grey;
 }
 
-.thegrid tr:nth-child(odd) td:nth-child(even) {
+.thegrid > div:nth-child(odd) > div:nth-child(even) {
     background: grey;
 }
 

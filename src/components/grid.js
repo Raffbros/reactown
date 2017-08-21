@@ -6,16 +6,16 @@ const setupGrid = function (props) {
     console.log('hork');
     grid = ([...new Array(props.size)]).map(r => {
         return (
-            <tr>
+            <div>
                 {([...new Array(props.size)]).map(c => {
                   console.log('hork');
                     return (
-                        <td>
+                        <div>
                             Hork
-                        </td>
+                        </div>
                     );
                 })}
-            </tr>
+            </div>
         );
     });
     return grid;
@@ -27,12 +27,12 @@ const Grid = function (props) {
     }
 
     return (
-        <div className="thegrid">
+        <div className="sweater">
             Hello, Nerdos
             <br />
-            <table>
+            <div className="thegrid">
                 {grid}
-            </table>
+            </div>
         </div>
     );
 }
