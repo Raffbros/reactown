@@ -1,4 +1,5 @@
 import React from 'react';
+import './grid.css';
 let grid = [];
 
 const setupGrid = function (props) {
@@ -26,7 +27,7 @@ const Grid = function (props) {
     }
 
     return (
-        <div>
+        <div className="thegrid">
             Hello, Nerdos
             <br />
             <table>

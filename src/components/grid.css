@@ -1,0 +1,20 @@
+.thegrid {
+    width: 100%;
+}
+
+.thegrid tr {
+    
+}
+
+.thegrid tr:nth-child(odd) {
+}
+
+
+.thegrid tr:nth-child(even) td:nth-child(odd) {
+    background: grey;
+}
+
+.thegrid tr:nth-child(odd) td:nth-child(even) {
+    background: grey;
+}
+
