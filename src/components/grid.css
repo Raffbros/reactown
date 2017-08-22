@@ -1,0 +1,13 @@
+.thegrid {
+    display: flex;
+    width: 100%;
+}
+
+.thegrid > div:nth-child(even) > div:nth-child(odd) {
+    background: grey;
+}
+
+.thegrid > div:nth-child(odd) > div:nth-child(even) {
+    background: grey;
+}
+
