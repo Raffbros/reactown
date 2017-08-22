@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { Button } from 'react-bootstrap';
+import AutoComplete from 'material-ui/AutoComplete';
 
 import Tavern from './tavern';
 
@@ -31,16 +32,12 @@ const makeGrid = function (gridObjects) {
 class Grid extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {grid: this.setupGrid(props)};
-    }
-
-    addToGrid (x, y) {
-        var grid = _.cloneDeep(this.state.grid);
-        grid[x][y] = {
-            type: 'Tavern',
-            props: {}
+        this.state = {
+            whatToBuild: 'Button',
+            grid: this.setupGrid(props)
         };
-        this.setState({grid});
+
+        this.handleUpdateInput = this.handleUpdateInput.bind(this);
     }
 
     setupGrid (props) {
@@ -58,11 +55,31 @@ class Grid extends React.Component {
         });
     }
 
+    addToGrid (x, y) {
+        var grid = _.cloneDeep(this.state.grid);
+        grid[x][y] = {
+            type: this.state.whatToBuild,
+            props: {}
+        };
+        this.setState({grid});
+    }
+
+    handleUpdateInput = (value) => {
+      this.setState({whatToBuild: value});
+    };
+
     render() {
         return (
             <div className="sweater">
                 Hello, Nerdos
                 <br />
+                <AutoComplete
+                  floatingLabelText="Pick What You Wanna Build"
+                  hintText="Pick What You Wanna Build"
+                  filter={AutoComplete.caseInsensitiveFilter}
+                  dataSource={Object.keys(TYPES)}
+                  onUpdateInput={this.handleUpdateInput}
+                />
                 <div className="thegrid">
                     {makeGrid(this.state.grid)}
                 </div>
