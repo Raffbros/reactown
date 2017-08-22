@@ -12,6 +12,17 @@ const TYPES = {
     Tavern
 }
 
+const TYPE_DEFAULT_PROPS = {
+    Button: function () {
+        return {
+            onClick: this.addToGrid.bind(this, ...arguments),
+            bsStyle: "primary",
+            children: `Make A ${this.state.whatToBuild}`
+        };
+    },
+    Tavern: {}
+}
+
 const makeGrid = function (gridObjects) {
     return gridObjects.map((c, x) => {
         return (
@@ -33,9 +44,9 @@ class Grid extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            whatToBuild: 'Button',
-            grid: this.setupGrid(props)
+            whatToBuild: 'Tavern',
         };
+        this.state.grid = this.setupGrid(props);
 
         this.handleUpdateInput = this.handleUpdateInput.bind(this);
     }
@@ -48,7 +59,7 @@ class Grid extends React.Component {
                     props: {
                         onClick: this.addToGrid.bind(this, x, y),
                         bsStyle: "primary",
-                        children: "Make A Tavern"
+                        children: `Make A ${this.state.whatToBuild}`
                     }
                 };
             })
@@ -57,9 +68,11 @@ class Grid extends React.Component {
 
     addToGrid (x, y) {
         var grid = _.cloneDeep(this.state.grid);
+        var nextItemProps = TYPE_DEFAULT_PROPS[this.state.whatToBuild];
+        nextItemProps = _.isFunction(nextItemProps) ? nextItemProps.apply(this, arguments) : nextItemProps;
         grid[x][y] = {
             type: this.state.whatToBuild,
-            props: {}
+            props: nextItemProps
         };
         this.setState({grid});
     }
