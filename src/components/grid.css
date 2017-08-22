@@ -1,7 +1,8 @@
 .thegrid {
     display: flex;
-    align-items: flex-start;
     width: 100%;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
 .thegrid > div:nth-child(even) > div:nth-child(odd) {
@@ -13,8 +14,18 @@
 }
 
 .grid-item {
-    width: 250px;
-    height: 250px;
+    flex-grow: 1;
+    overflow: hidden;
+    max-width: 20%;
+}
+
+.thegrid > div {
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .grid-item > div {
