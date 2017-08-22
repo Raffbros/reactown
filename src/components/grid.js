@@ -1,40 +1,74 @@
 import React from 'react';
-import './grid.css';
-let grid = [];
+import _ from 'lodash';
+import { Button } from 'react-bootstrap';
 
-const setupGrid = function (props) {
-    console.log('hork');
-    grid = ([...new Array(props.size)]).map(r => {
+import Tavern from './tavern';
+
+import './grid.css';
+
+const TYPES = {
+    Button,
+    Tavern
+}
+
+const makeGrid = function (gridObjects) {
+    return gridObjects.map((c, x) => {
         return (
             <div>
-                {([...new Array(props.size)]).map(c => {
-                  console.log('hork');
+                {c.map((r, y) => {
+                    let Item = TYPES[r.type];
                     return (
-                        <div>
-                            Hork
+                        <div className="grid-item" >
+                            <Item {...gridObjects[x][y].props} />
                         </div>
                     );
                 })}
             </div>
         );
     });
-    return grid;
 }
 
-const Grid = function (props) {
-    if (!grid.length) {
-        setupGrid(props);
+class Grid extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {grid: this.setupGrid(props)};
     }
 
-    return (
-        <div className="sweater">
-            Hello, Nerdos
-            <br />
-            <div className="thegrid">
-                {grid}
+    addToGrid (x, y) {
+        var grid = _.cloneDeep(this.state.grid);
+        grid[x][y] = {
+            type: 'Tavern',
+            props: {}
+        };
+        this.setState({grid});
+    }
+
+    setupGrid (props) {
+        return ([...new Array(props.size)]).map((r, x) => {
+            return ([...new Array(props.size)]).map((c, y) => {
+                return {
+                    type: 'Button',
+                    props: {
+                        onClick: this.addToGrid.bind(this, x, y),
+                        bsStyle: "primary",
+                        children: "Make A Tavern"
+                    }
+                };
+            })
+        });
+    }
+
+    render() {
+        return (
+            <div className="sweater">
+                Hello, Nerdos
+                <br />
+                <div className="thegrid">
+                    {makeGrid(this.state.grid)}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Grid;
