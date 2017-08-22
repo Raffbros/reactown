@@ -16,3 +16,9 @@ A resource management game designed and coded by Luke, Thomas, and Max Rafferty.
 > "Smile at a stranger. See what happens." - Patti LuPone
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+Documentation for dependencies:
+Lodash: https://lodash.com/docs/4.17.4
+React Bootstrap: https://react-bootstrap.github.io/components.html
+React Material: http://www.material-ui.com/#/components
+
