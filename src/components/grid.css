@@ -1,5 +1,6 @@
 .thegrid {
     display: flex;
+    align-items: flex-start;
     width: 100%;
 }
 
@@ -11,3 +12,30 @@
     background: grey;
 }
 
+.grid-item {
+    width: 250px;
+    height: 250px;
+}
+
+.grid-item > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-item textarea {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.ascii-area {
+  white-space: pre;
+  font-family: monospace;
+  text-align: left;
+}
