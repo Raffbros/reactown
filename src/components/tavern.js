@@ -9,7 +9,15 @@ class Tavern extends GenericBuilding {
     render() {
         return (
             <div>
-                wakka wakka
+                <div className="ascii-area">
+<span>       '::::.<br /></span>
+<span>        _____A_<br /></span>
+<span>       /      /\<br /></span>
+<span>    __/__/\__/  \___<br /></span>
+<span>---/__|" '' "| /___/\----<br /></span>
+<span>   |''|"'||'"| |' '||<br /></span>
+<span>   '""'""))""'"'""""'<br /></span>
+                </div>
             </div>
         );
     }
