@@ -2,12 +2,15 @@ import React from 'react';
 import GenericBuilding from './generic.js'
 import State from './dispatcher.js'
 
-class Slum extends GenericBuilding {
+class HuntersLodge extends GenericBuilding {
   constructor(props) {
     super(props)
-    }
-  turnAction(){
   }
+
+  turnAction(){
+    State.set("food", State.get("food")+1);
+  }
+
   render() {
     return (
       <div>
@@ -15,4 +18,5 @@ class Slum extends GenericBuilding {
     )
   }
 }
-export default Slum;
+
+export default HuntersLodge;

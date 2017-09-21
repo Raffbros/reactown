@@ -4,5 +4,8 @@ export default {
     },
     set: (key, value) => {
         window.reactown.data[key] = value;
+    },
+    displayAssets: () => {
+      return window.reactown.data
     }
 };

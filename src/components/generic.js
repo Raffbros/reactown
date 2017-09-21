@@ -1,4 +1,5 @@
 import React from 'react';
+import State from './dispatcher.js'
 
 class GenericBuilding extends React.Component{
     constructor(props) {
