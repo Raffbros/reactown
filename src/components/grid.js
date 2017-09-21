@@ -4,12 +4,20 @@ import { Button } from 'react-bootstrap';
 import AutoComplete from 'material-ui/AutoComplete';
 
 import Tavern from './tavern';
+import Well from './well';
+import Blacksmith from './blacksmith';
+import Farm from './farm'
+import WizardTower from './wizard-tower'
 
 import './grid.css';
 
 const TYPES = {
     Button,
-    Tavern
+    Tavern,
+    Well,
+    Blacksmith,
+    Farm,
+    WizardTower
 }
 
 const TYPE_DEFAULT_PROPS = {
@@ -102,4 +110,3 @@ class Grid extends React.Component {
 }
 
 export default Grid;
-
