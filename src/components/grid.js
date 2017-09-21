@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { Button } from 'react-bootstrap';
 import AutoComplete from 'material-ui/AutoComplete';
+import shortid from 'shortid';
 
 import Tavern from './tavern';
 import Well from './well';
@@ -39,7 +40,7 @@ const makeGrid = function (gridObjects) {
                     let Item = TYPES[r.type];
                     return (
                         <div className="grid-item" >
-                            <Item {...gridObjects[x][y].props} />
+                            <Item ref={r.ref} {...gridObjects[x][y].props} />
                         </div>
                     );
                 })}
@@ -57,6 +58,8 @@ class Grid extends React.Component {
         this.state.grid = this.setupGrid(props);
 
         this.handleUpdateInput = this.handleUpdateInput.bind(this);
+
+        this.doAllGridActions = this.doAllGridActions.bind(this);
     }
 
     setupGrid (props) {
@@ -68,7 +71,8 @@ class Grid extends React.Component {
                         onClick: this.addToGrid.bind(this, x, y),
                         bsStyle: "primary",
                         children: `Make A ${this.state.whatToBuild}`
-                    }
+                    },
+                    ref: shortid.generate()
                 };
             })
         });
@@ -80,9 +84,18 @@ class Grid extends React.Component {
         nextItemProps = _.isFunction(nextItemProps) ? nextItemProps.apply(this, arguments) : nextItemProps;
         grid[x][y] = {
             type: this.state.whatToBuild,
-            props: nextItemProps
+            props: nextItemProps,
+            ref: shortid.generate()
         };
         this.setState({grid});
+    }
+
+    doAllGridActions () {
+        this.state.grid.forEach(row => {
+            row.forEach(col => {
+                if (this.refs[col.ref].turnAction != null) this.refs[col.ref].turnAction();
+            })
+        })
     }
 
     handleUpdateInput = (value) => {

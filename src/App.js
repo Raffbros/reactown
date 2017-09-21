@@ -4,8 +4,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import logo from './logo.svg';
 import './App.css';
 import Grid from './components/grid.js';
+import {TurnButton} from './components/time.js';
 
-window.reactown = {};
+window.reactown = window.reactown || {};
 window.reactown.data = {};
 
 // Needed for onTouchTap
@@ -13,7 +14,13 @@ window.reactown.data = {};
 injectTapEventPlugin();
 
 class App extends Component {
+  executeGridActions() {
+      debugger;
+
+    this.refs.theGrid.doAllGridActions();
+  }
   render() {
+    let self = this;
     return (
       <div className="App">
         <div className="App-header">
@@ -21,8 +28,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
-            <Grid size={5} />
+            <Grid ref="theGrid" size={5} />
         </div>
+        <TurnButton onNextShmeek={this.executeGridActions.bind(self)} />
       </div>
     );
   }

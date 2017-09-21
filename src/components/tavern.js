@@ -5,6 +5,7 @@ import State from './dispatcher.js'
 class Tavern extends GenericBuilding {
     constructor(props) {
         super(props)
+        this.turnAction = this.turnAction.bind(this);
     }
 
     turnAction(){
