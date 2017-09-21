@@ -5,6 +5,10 @@ class GenericBuilding extends React.Component{
         super(props)
     }
 
+    turnAction(options) {
+        throw new Error('Method Not Implemented');
+    }
+
     render() {
         return (
             <div>
