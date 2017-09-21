@@ -9,7 +9,7 @@ class Tavern extends GenericBuilding {
     }
 
     turnAction(){
-        State.set("apples", State.get("apples")+1);
+      State.set("beer", State.get("beer")+1);
     }
 
     render() {

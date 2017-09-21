@@ -102,6 +102,8 @@ class Grid extends React.Component {
       this.setState({whatToBuild: value});
     };
 
+
+
     render() {
         return (
             <div className="sweater">
@@ -117,6 +119,7 @@ class Grid extends React.Component {
                 <div className="thegrid">
                     {makeGrid(this.state.grid)}
                 </div>
+
             </div>
         );
     }
