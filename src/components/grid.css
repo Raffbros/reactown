@@ -1,6 +1,8 @@
 .thegrid {
     display: flex;
     width: 100%;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
 .thegrid > div:nth-child(even) > div:nth-child(odd) {
@@ -11,3 +13,40 @@
     background: grey;
 }
 
+.grid-item {
+    flex-grow: 1;
+    overflow: hidden;
+    max-width: 20%;
+}
+
+.thegrid > div {
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.grid-item > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-item textarea {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.ascii-area {
+  white-space: pre;
+  font-family: monospace;
+  text-align: left;
+}
