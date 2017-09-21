@@ -4,9 +4,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import logo from './logo.svg';
 import './App.css';
 import Grid from './components/grid.js';
+
 import State from  './components/dispatcher.js'
 
-window.reactown = {};
+import {TurnButton} from './components/time.js';
+
+
+window.reactown = window.reactown || {};
 window.reactown.data = {};
 
 
@@ -19,8 +23,12 @@ class App extends React.Component {
       super(props);
       this.state = {}
       this.state.status = State.displayAssets()
-  }
+    }
+    executeGridActions() {
+      this.refs.theGrid.doAllGridActions();
+    }
   render() {
+    let self = this;
     return (
       <div className="App">
         <div className="App-header">
@@ -28,12 +36,13 @@ class App extends React.Component {
           <h2>Welcome to React</h2>
         </div>
         <div className="App-intro">
-            <Grid size={5} />
+            <Grid ref="theGrid" size={5} />
         </div>
         <div className="townassets">
           {JSON.stringify(this.state.status)}
           <button onClick = {()=>this.forceUpdate()}>Text </button>
         </div>
+        <TurnButton onNextShmeek={this.executeGridActions.bind(self)} />
       </div>
     );
   }
