@@ -15,8 +15,6 @@ injectTapEventPlugin();
 
 class App extends Component {
   executeGridActions() {
-      debugger;
-
     this.refs.theGrid.doAllGridActions();
   }
   render() {
