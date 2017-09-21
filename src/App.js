@@ -5,6 +5,9 @@ import logo from './logo.svg';
 import './App.css';
 import Grid from './components/grid.js';
 
+window.reactown = {};
+window.reactown.data = {};
+
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
