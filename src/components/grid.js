@@ -7,8 +7,14 @@ import shortid from 'shortid';
 import Tavern from './tavern';
 import Well from './well';
 import Blacksmith from './blacksmith';
-import Farm from './farm'
-import WizardTower from './wizard-tower'
+import Farm from './farm';
+import WizardTower from './wizard-tower';
+import Slum from './slum';
+import Market from './market';
+import Hamlet from './hamlet';
+import HuntersLodge from './hunters-lodge';
+import FrogPond from './frog-pond';
+import Mine from './mine'
 
 import './grid.css';
 
@@ -18,7 +24,14 @@ const TYPES = {
     Well,
     Blacksmith,
     Farm,
-    WizardTower
+    WizardTower,
+    Slum,
+    Market,
+    HuntersLodge,
+    Hamlet,
+    FrogPond,
+    Mine,
+
 }
 
 const TYPE_DEFAULT_PROPS = {
