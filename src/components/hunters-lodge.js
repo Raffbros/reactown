@@ -14,6 +14,7 @@ class HuntersLodge extends GenericBuilding {
   render() {
     return (
       <div>
+        lodge
       </div>
     )
   }

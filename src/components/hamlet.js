@@ -13,6 +13,7 @@ class Hamlet extends GenericBuilding {
   render() {
     return (
       <div>
+        hamlet
       </div>
     )
   }

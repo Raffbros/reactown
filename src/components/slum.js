@@ -11,6 +11,7 @@ class Slum extends GenericBuilding {
   render() {
     return (
       <div>
+        slum
       </div>
     )
   }
