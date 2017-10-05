@@ -14,6 +14,7 @@ class Farm extends GenericBuilding {
   render() {
     return (
       <div>
+        farm
       </div>
     )
   }

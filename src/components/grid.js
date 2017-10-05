@@ -18,7 +18,9 @@ const TYPES = {
     Well,
     Blacksmith,
     Farm,
-    WizardTower
+    WizardTower,
+    Tannery,
+    Leatherworks,
 }
 
 const TYPE_DEFAULT_PROPS = {

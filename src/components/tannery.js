@@ -2,19 +2,18 @@ import React from 'react';
 import GenericBuilding from './generic.js'
 import State from './dispatcher.js'
 
-class Market extends GenericBuilding {
+class Tannery extends GenericBuilding {
   constructor(props) {
     super(props)
-  }
+    }
   turnAction(){
   }
   render() {
     return (
       <div>
-        market
+        tannery
       </div>
     )
   }
 }
-
-export default Market;
+export default Tannery;

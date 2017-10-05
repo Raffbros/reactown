@@ -14,6 +14,7 @@ class Blacksmith extends GenericBuilding {
   render() {
     return (
       <div>
+        blacksmith
       </div>
     )
   }
